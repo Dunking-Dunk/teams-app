@@ -1,0 +1,39 @@
+.progress {
+    width: 160px;
+    height: 160px;
+    position: relative;
+}
+
+
+.outer {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    padding: 20px;
+    box-shadow: 6px 6px 10px -10px #ff00cc,
+    -6px -6px 10px -1px #333399;
+}
+
+.inner {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 6px -1px #ff00cc ,
+    inset 4px 4px 6px -1px #333399,
+     -0.5px -0.5px 0px   #ff00cc,
+     0.5px 0.5px 0px #333399,
+     0px 12px 10px -10px #ff00cc;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+#number {
+    font-weight: 600;
+    background: #ff00cc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+

@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 5rem 0;
+}
+
+.title {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5rem;
+}
+
+.form__text {
+    margin-bottom: 0.6rem;
+    text-transform: capitalize;
+}
+
+.input {
+    width: 450px;
+    height: 50px;
+    min-width: 450px;
+    max-height: 150px;
+    max-width: 450px;
+    transition: 0.35s ease-in-out;
+}
+
+.create__btn {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    outline: none;
+    background-color: transparent;
+    border: 1px dotted green;
+    transition: 0.35s ease;
+}
+
+.back__btn {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.create__btn:hover {
+    background-color: green;
+    transform: translateY(-10px);
+}
+
+@media screen and (max-width: 768px) {
+    .input {
+        width: 300px;
+        height: 50px;
+        min-width: 300px;
+        max-height: 150px;
+        max-width: 300px;
+    }
+}

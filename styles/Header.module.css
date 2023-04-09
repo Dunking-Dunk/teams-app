@@ -1,0 +1,94 @@
+.container {
+    padding: 1rem 20%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  
+}
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    margin-right: 5px;
+}
+
+.img__container {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: aliceblue;
+  
+    overflow: hidden;
+}
+
+.image {
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+}
+
+.user__container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    border-radius: 50px;
+    z-index: 0;
+    
+}
+
+.user__container::before {
+    position: absolute;
+    content: '';
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+z-index: -1;
+    background: #ff00cc;  
+    background: -webkit-linear-gradient(to right, #333399, #ff00cc);
+    background: linear-gradient(to right, #333399, #ff00cc);
+    border-radius: inherit;
+}
+
+.user__container::after {
+    position: absolute;
+    content: '';
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+z-index: -1;
+    background: black;  
+    border-radius: inherit;
+}
+
+.signout__button {
+    background-color: black;
+    border: 1px dotted red;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.35s ease;
+}
+
+.signout__button:hover {
+    background-color: red;
+    color: black;
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        margin: 0;
+        padding: 1rem;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+}

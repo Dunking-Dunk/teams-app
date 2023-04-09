@@ -1,0 +1,117 @@
+.container {
+    padding: 2rem;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sub__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 1rem;
+}
+
+.create__btn {
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    outline: none;
+}
+
+.create__btn:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-10px);
+}
+
+.user__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 70%;
+}
+
+
+.user__card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid white;
+    padding: 1rem;
+    margin: 10px;
+}
+
+.user__card__text {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.delete__btn {
+    outline: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    border: 1px dotted red;
+    background-color: black;
+}
+
+.delete__btn:hover {
+    background-color: red;
+}
+
+.allow__btn {
+    outline: none;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+    transition: 0.35s ease;
+    border: 1px dotted green;
+    background-color: black;
+    height: 40px;
+}
+
+.allow__btn:hover {
+    background-color: green;
+}
+
+.user__btns {
+    display: flex;
+    gap: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .user__btns {
+        flex-direction: column;
+    }
+    .user__card {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.error {
+    color: red;
+}

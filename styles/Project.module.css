@@ -1,0 +1,445 @@
+.container {
+  margin: 0 18%;
+
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+.detail__title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+background: #ff00cc;  
+background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+background: linear-gradient(to right, #333399, #ff00cc); 
+    -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-bottom: 20px;
+}
+
+.detail__container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding-right: 80px;
+}
+
+.detail__row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.detail__row__title {
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.detail__row__value {
+  font-weight: 400;
+}
+
+.detail__sub__container {
+  padding-bottom: 20px;
+  width: 30%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+border-radius: 20px;
+z-index: 0;
+background-color: rgba(0,0,0,0.6);
+}
+
+.detail__sub__container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ff00cc;  
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+  background: linear-gradient(to right, #333399, #ff00cc); 
+  filter: blur(20px);
+border-radius: inherit;
+transform: scale(1.1);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+
+.detail__sub__container::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ff00cc;  
+  background: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.date__container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.back__btn {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    cursor: pointer;
+    border: 1px solid red;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.create__btn:hover {
+    background-color: green;
+    transform: translateY(-10px);
+}
+
+.techStack__container {
+    display: flex;
+    flex-direction:row;
+    gap: 15px
+  }
+  
+  .tech {
+   padding: 10px 10px;
+   border-radius: 10px;
+  background: #ff00cc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+  }
+
+
+  .team__container {
+    margin-top: 1rem;
+  }
+
+.member {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 30px;
+ margin-top: 10px;
+}
+
+.member__img__container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px red;
+  transition: 0.35s ease-in-out;
+}
+
+.member:hover .member__img__container  {
+  transform: scale(2) translateY(-20px);
+box-shadow: 1px 1px 10px red;
+}
+
+.member__img  {
+  width: 100%;
+  height: 100%;
+    object-fit: cover;
+}
+
+.user__name {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  background: #ff00cc;  
+background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+background: linear-gradient(to right, #333399, #ff00cc);
+    -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0px;
+}
+.header__container {
+  background: #ff00cc; 
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+  background: linear-gradient(to right, #333399, #ff00cc); 
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.header__btn {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  outline: none;
+  border:1px;
+  transition: 0.35s ease;
+  cursor: pointer;
+}
+
+.header__btn__active {
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  outline: none;
+  border:1px;
+  transition: 0.35s ease;
+  cursor: pointer;
+  background-color: #333399;
+}
+
+.header__btn:hover {
+  transform: translateY(-10px);
+}
+
+.template {
+  position: absolute;
+  transition: 0.35s ease; 
+  display: none;
+}
+
+.template__ctive {
+  display: block;
+
+}
+
+.create__goal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal__input {
+  width: 450px;
+  height: 50px;
+  min-width: 450px;
+  max-height: 150px;
+  max-width: 450px;
+  transition: 0.35s ease-in-out;
+}
+
+.goal__create__btn {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.35s ease;
+  outline: none;
+  background-color: transparent;
+  border: 1px dotted green;
+  transition: 0.35s ease;
+}
+
+.goal__create__btn:hover {
+  background-color: green;
+  transform: translateY(-10px);
+}
+
+.code__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  margin:20px 0;
+}
+
+.githubLink {
+  width: 100%;
+  padding: 20px 5px;
+  text-align: center;
+  background: #ff00cc;  
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+  background: linear-gradient(to right, #333399, #ff00cc); 
+  border-radius: 10px;
+  transition: 0.35s ease-in-out;
+}
+
+.githubLink:hover {
+  transform: translateY(-5px);
+}
+
+.goals__container {
+  margin-top: 30px;
+}
+
+.goal__card {
+  padding: 20px;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  z-index: 0;
+}
+
+.goal__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ff00cc;  
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  
+  background: linear-gradient(to right, #333399, #ff00cc); 
+  filter: blur(20px);
+border-radius: inherit;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.goal__card::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ff00cc;  
+  background: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+.goal__card__left{
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.goal__card__right {
+
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.goal__card__title {
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.goal__completed__btn {
+  padding: 0.7rem 3rem;
+  background-color: #333399;
+  outline: none;
+  border:2px solid #ff00cc;
+  border-radius: 5px;
+  transition: 1s ease-in-out;
+  cursor: pointer;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal__completed__btn:hover {
+  border:2px solid #333399;
+  background-color:#ff00cc;
+}
+
+.goal__created__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.goal__card__completedUser {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    gap: 5px;
+}
+
+@media  (max-width: 768px) {
+  .row {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px
+  }
+  .detail__container  {
+    width: 100%;
+  }
+  /* .title__row{
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+  } */
+
+  .header__btn {
+    padding: 1rem;
+  }
+  .header__btn__active {
+    padding: 1rem;
+  }
+
+    .container {
+      margin: 30px 5%;
+}
+
+.back__btn {
+  position: absolute;
+  top: 8%;
+  left: 5%;
+  cursor: pointer;
+  border: 1px solid red;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.goal__input {
+  width: 300px;
+  height: 50px;
+  min-width: 300px;
+  max-height: 150px;
+  max-width: 300px;
+}
+
+.detail__sub__container {
+  width: 100%;
+}
+
+.techStack__container {
+  flex-wrap: wrap;
+}
+
+.goal__card {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.goal__card__right {
+  align-self: center;
+}
+
+}
+
