@@ -103,7 +103,7 @@ const CreateProject = () => {
         <div>
           <h3 className={styles.form__text}> Tech Stack: </h3>
           <h5 className={styles.form__text}>
-            <blockquote>Note: </blockquote>Insert "," between each Tech
+            <blockquote>Note: </blockquote>Insert , between each Tech
           </h5>
           <textarea
             placeholder="Tech Stack"
