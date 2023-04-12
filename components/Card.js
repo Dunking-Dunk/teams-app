@@ -1,7 +1,13 @@
 import styles from "../styles/ProjectCard.module.css";
 import moment from "moment/moment";
 import { useRouter } from "next/router";
-import { updateDoc, arrayUnion, arrayRemove, doc } from "firebase/firestore";
+import {
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  doc,
+  deleteDoc,
+} from "firebase/firestore";
 import { db } from "../firebaseConfig";
 
 const ProjectCard = ({ project, users, user, detail, key }) => {
@@ -21,6 +27,13 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
       });
     }
   };
+
+  const handleDelete = async (e, projectId) => {
+    e.stopPropagation();
+    const projectRef = doc(db, "projects", projectId);
+    await deleteDoc(projectRef);
+  };
+
   return (
     <div
       className={styles.card}
@@ -81,7 +94,7 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
         <span className={styles.row__header}>Tech Stack:</span>
         <div className={styles.techStack__container}>
           {data.techStack?.length > 0 &&
-            data.techStack.map((stack, index) => (
+            data.techStack?.map((stack, index) => (
               <div className={styles.tech} key={index}>
                 {stack}
               </div>
@@ -92,6 +105,13 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
         <span className={styles.row__header}>
           Completion {moment(data.endDate).fromNow()}
         </span>
+        <button
+          className={styles.join__button}
+          style={{ background: "red" }}
+          onClick={(e) => handleDelete(e, project.id)}
+        >
+          Delete
+        </button>
         {!detail && !data.teamMembers.includes(user?.id) ? (
           <button
             className={styles.join__button}

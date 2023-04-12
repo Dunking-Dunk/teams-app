@@ -12,6 +12,7 @@ import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Card from "../components/Card";
+import moment from "moment";
 
 export default function Home({ user }) {
   const [projects, setProjects] = useState([]);
@@ -51,15 +52,20 @@ export default function Home({ user }) {
       <div className={styles.projects__container}>
         {projects.map((project) => {
           const users = teams[project.id];
-          return (
-            <Card
-              project={project}
-              detail={false}
-              users={users}
-              user={user}
-              key={project.id}
-            />
-          );
+          if (
+            moment(Date()).format("MMMM Do") <
+            moment(project.data().endDate).format("MMMM Do")
+          ) {
+            return (
+              <Card
+                project={project}
+                detail={false}
+                users={users}
+                user={user}
+                key={project.id}
+              />
+            );
+          }
         })}
       </div>
     </div>

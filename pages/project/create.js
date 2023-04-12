@@ -13,22 +13,21 @@ const CreateProject = () => {
     endGoal: "",
     category: "",
     teamLead: "",
-    techStack: "",
+    techStack: [],
     endDate: "",
     teamMembers: [],
     startDate: serverTimestamp(),
+    githubLink: "",
   });
 
   const updateState = (data) => {
     setState((state) => ({ ...state, ...data }));
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    updateState({ techStack: [...state.techStack.split(",")] });
     if (
       state.title.length > 3 &&
-      state.description.length > 10 &&
+      state.description.length > 3 &&
       state.endGoal.length > 3
     ) {
       await addDoc(collection(db, "projects"), state);
@@ -38,7 +37,7 @@ const CreateProject = () => {
         endGoal: "",
         category: "",
         teamLead: "",
-        techStack: "",
+        techStack: [],
         endDate: "",
         teamMembers: [],
         githubLink: "",
@@ -109,7 +108,9 @@ const CreateProject = () => {
             placeholder="Tech Stack"
             className={styles.input}
             value={state.techStack}
-            onChange={(e) => updateState({ techStack: e.target.value })}
+            onChange={(e) =>
+              updateState({ techStack: e.target.value.split(",") })
+            }
           />
         </div>
         <div>
