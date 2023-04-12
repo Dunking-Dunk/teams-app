@@ -8,12 +8,9 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { db, getAuthClient } from "../firebaseConfig";
+import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Header from "../components/Header";
 import Link from "next/link";
-import Image from "next/image";
 import Card from "../components/Card";
 
 export default function Home({ user }) {

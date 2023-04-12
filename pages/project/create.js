@@ -26,19 +26,25 @@ const CreateProject = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateState({ techStack: [...state.techStack.split(",")] });
-    await addDoc(collection(db, "projects"), state);
-    setState({
-      title: "",
-      description: "",
-      endGoal: "",
-      category: "",
-      teamLead: "",
-      techStack: "",
-      endDate: "",
-      teamMembers: [],
-      githubLink: "",
-    });
-    router.push("/");
+    if (
+      state.title.length > 3 &&
+      state.description.length > 10 &&
+      state.endGoal.length > 3
+    ) {
+      await addDoc(collection(db, "projects"), state);
+      setState({
+        title: "",
+        description: "",
+        endGoal: "",
+        category: "",
+        teamLead: "",
+        techStack: "",
+        endDate: "",
+        teamMembers: [],
+        githubLink: "",
+      });
+      router.push("/");
+    }
   };
 
   return (

@@ -20,6 +20,17 @@ a {
   margin: 0;
 }
 
+html::-webkit-scrollbar {
+  width: 5px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #ff00cc;  
+  background: -webkit-linear-gradient(to bottom, #333399, #ff00cc);  
+  background: linear-gradient(to bottom, #333399, #ff00cc); 
+  border-radius: 20px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -39,3 +50,4 @@ circle {
         stroke-dashoffset: 472;
      transition: 2s linear;
 }
+

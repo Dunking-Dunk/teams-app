@@ -17,7 +17,7 @@ import {
 import { getAuthClient, db, getClientStorage } from "../../firebaseConfig";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-const HursunIsAdmin = () => {
+const HursunIsAdmin = ({ allUsers }) => {
   const [state, setState] = useState({
     email: "",
     password: "",
@@ -26,21 +26,13 @@ const HursunIsAdmin = () => {
     image: "",
     imgUrl: "",
   });
-  const [users, setUsers] = useState([]);
   const [adminAccess, setAdminAccess] = useState(false);
 
   const metadata = {
     contentType: "image/jpeg",
   };
 
-  const getUsers = async () => {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    const data = querySnapshot.docs.map((doc) => doc.data());
-    setUsers(data);
-  };
-
   useEffect(() => {
-    getUsers();
     onAuthStateChanged(getAuthClient, (user) => {
       if (user) {
         getDoc(doc(db, "users", user.uid)).then((user) => {
@@ -207,7 +199,7 @@ const HursunIsAdmin = () => {
         </div>
         <div className={styles.user__container}>
           <h1 className={styles.title}>manage users</h1>
-          {users.map((user) => {
+          {allUsers?.map((user) => {
             return (
               <div className={styles.user__card} key={user.id}>
                 <div>

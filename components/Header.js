@@ -1,9 +1,12 @@
 import styles from "../styles/Header.module.css";
+import Link from "next/link";
 
 const Header = ({ user, signOutHandler }) => {
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>ALPHA</h1>
+      <Link href="/">
+        <h1 className={styles.title}>ALPHA</h1>
+      </Link>
 
       {user && (
         <div className={styles.right}>
