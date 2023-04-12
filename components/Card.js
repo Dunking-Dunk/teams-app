@@ -105,13 +105,16 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
         <span className={styles.row__header}>
           Completion {moment(data.endDate).fromNow()}
         </span>
-        <button
-          className={styles.join__button}
-          style={{ background: "red" }}
-          onClick={(e) => handleDelete(e, project.id)}
-        >
-          Delete
-        </button>
+        {user?.admin && (
+          <button
+            className={styles.join__button}
+            style={{ background: "red" }}
+            onClick={(e) => handleDelete(e, project.id)}
+          >
+            Delete
+          </button>
+        )}
+
         {!detail && !data.teamMembers.includes(user?.id) ? (
           <button
             className={styles.join__button}
