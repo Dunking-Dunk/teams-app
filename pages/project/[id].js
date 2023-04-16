@@ -56,7 +56,7 @@ const Project = ({ user }) => {
         let data = await getDoc(projectRef);
         setProject(data.data());
         if (data.data()) {
-          if (data.data()?.teamMembers.length > 0) {
+          if (data.data()?.teamMembers?.length > 0) {
             const q = query(
               collection(db, "users"),
               where("id", "in", data.data().teamMembers)
@@ -66,7 +66,7 @@ const Project = ({ user }) => {
           }
           const projectGoalRef = query(
             collection(db, "projects", id, "goals"),
-            orderBy("endDate")
+            orderBy("endDate", "desc")
           );
           const unsub = await onSnapshot(projectGoalRef, (goal) => {
             setProject((data) => ({ ...data, goals: goal.docs }));
@@ -413,12 +413,20 @@ const Project = ({ user }) => {
                     data.createdBy,
                     project.team
                   );
-                  if (
-                    moment(Date()).format("MMMM Do") <
-                    moment(data.endDate).format("MMMM Do")
-                  ) {
-                    return (
-                      <div key={goal.id} className={styles.goal__card}>
+                  const expired =
+                    moment(Date()).format("MMMM Do") >
+                    moment(data.endDate).format("MMMM Do");
+
+                  return (
+                    <>
+                      <div
+                        key={goal.id}
+                        className={styles.goal__card}
+                        style={{
+                          pointerEvents: expired ? "none" : "",
+                          opacity: expired ? 0.5 : 1,
+                        }}
+                      >
                         <div className={styles.goal__card__left}>
                           <div
                             style={{
@@ -504,18 +512,18 @@ const Project = ({ user }) => {
                               </button>
                             )
                           )}
-                          {user?.admin && (
-                            <button
-                              className={styles.delete__button}
-                              onClick={(e) => handleDeleteGoal(e, goal.id)}
-                            >
-                              <BsFillTrashFill size={22} color="white" />
-                            </button>
-                          )}
                         </div>
                       </div>
-                    );
-                  }
+                      {user?.admin && (
+                        <button
+                          className={styles.delete__button}
+                          onClick={(e) => handleDeleteGoal(e, goal.id)}
+                        >
+                          <BsFillTrashFill size={22} color="white" />
+                        </button>
+                      )}
+                    </>
+                  );
                 })}
             </div>
           </div>

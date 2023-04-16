@@ -1,6 +1,12 @@
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
-import { getDoc, doc, getDocs, collection } from "firebase/firestore";
+import {
+  getDoc,
+  doc,
+  getDocs,
+  collection,
+  onSnapshot,
+} from "firebase/firestore";
 import { getAuthClient, db } from "../firebaseConfig";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useRouter } from "next/router";
@@ -12,9 +18,10 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   const getUsers = async () => {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    const data = querySnapshot.docs.map((doc) => doc.data());
-    setUsers(data);
+    const querySnapshot = await onSnapshot(collection(db, "users"), (user) => {
+      const data = user.docs.map((doc) => doc.data());
+      setUsers(data);
+    });
   };
 
   useEffect(() => {

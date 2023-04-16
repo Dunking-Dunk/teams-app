@@ -115,7 +115,7 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
           </button>
         )}
 
-        {!detail && !data.teamMembers.includes(user?.id) ? (
+        {!detail && !data.teamMembers?.includes(user?.id) ? (
           <button
             className={styles.join__button}
             onClick={(e) => handleSubmit(e, project.id, "join")}

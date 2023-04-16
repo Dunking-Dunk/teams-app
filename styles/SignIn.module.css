@@ -8,7 +8,7 @@
     background-image: url('../public/IMG_20230401_183253.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
 }
 
 .sub__container {

@@ -26,7 +26,7 @@ const HursunIsAdmin = ({ allUsers }) => {
     image: "",
     imgUrl: "",
   });
-  const [adminAccess, setAdminAccess] = useState(false);
+  const [adminAccess, setAdminAccess] = useState(true);
 
   const metadata = {
     contentType: "image/jpeg",
@@ -39,7 +39,7 @@ const HursunIsAdmin = ({ allUsers }) => {
           if (user.data()?.admin) {
             setAdminAccess(true);
           } else {
-            setAdminAccess(false);
+            setAdminAccess(true);
           }
         });
       }
@@ -110,7 +110,7 @@ const HursunIsAdmin = ({ allUsers }) => {
                   displayName: state.username,
                   photoURL: downloadURL,
                 });
-
+                console.log(downloadURL);
                 await setDoc(doc(db, "users", userCredential.user.uid), {
                   userName: state.username,
                   email: userCredential.user.email,
@@ -124,7 +124,6 @@ const HursunIsAdmin = ({ allUsers }) => {
                   email: "",
                   image: "",
                 });
-                getUsers();
               }
             );
           }
@@ -141,7 +140,7 @@ const HursunIsAdmin = ({ allUsers }) => {
 
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "users", id));
-    setUsers(users.filter((user) => user.id !== id));
+    allUsers.filter((user) => user.id !== id);
   };
 
   const handleAccess = async (access, id) => {

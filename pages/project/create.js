@@ -114,7 +114,7 @@ const CreateProject = () => {
           />
         </div>
         <div>
-          <h3 className={styles.form__text}>Github Link: </h3>
+          <h3 className={styles.form__text}>source code Link: </h3>
           <input
             placeholder="link"
             type="text"

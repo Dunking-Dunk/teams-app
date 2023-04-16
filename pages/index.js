@@ -7,6 +7,7 @@ import {
   getDocs,
   query,
   where,
+  orderBy,
 } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { useEffect, useState } from "react";
@@ -19,16 +20,19 @@ export default function Home({ user }) {
   const [teams, setTeams] = useState({});
 
   useEffect(() => {
-    const unsub = onSnapshot(collection(db, "projects"), (doc) => {
-      setProjects(doc.docs);
-    });
+    const unsub = onSnapshot(
+      query(collection(db, "projects"), orderBy("endDate")),
+      (doc) => {
+        setProjects(doc.docs);
+      }
+    );
 
     return () => unsub();
   }, []);
 
   useEffect(() => {
     projects.forEach(async (project) => {
-      if (project.data().teamMembers.length > 0) {
+      if (project.data().teamMembers?.length > 0) {
         const q = query(
           collection(db, "users"),
           where("id", "in", project.data().teamMembers)
