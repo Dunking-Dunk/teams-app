@@ -26,7 +26,7 @@ const HursunIsAdmin = ({ allUsers }) => {
     image: "",
     imgUrl: "",
   });
-  const [adminAccess, setAdminAccess] = useState(true);
+  const [adminAccess, setAdminAccess] = useState(false);
 
   const metadata = {
     contentType: "image/jpeg",
@@ -39,7 +39,7 @@ const HursunIsAdmin = ({ allUsers }) => {
           if (user.data()?.admin) {
             setAdminAccess(true);
           } else {
-            setAdminAccess(true);
+            setAdminAccess(false);
           }
         });
       }
