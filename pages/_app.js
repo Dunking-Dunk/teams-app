@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <div>
+    <div className="root__container">
       <Header user={user} signOutHandler={signOutHandler} />
       <Component {...pageProps} user={user} allUsers={users} />
     </div>

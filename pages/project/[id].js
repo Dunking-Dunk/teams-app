@@ -73,7 +73,7 @@ const Project = ({ user }) => {
           });
           const projectForumRef = query(
             collection(db, "projects", id, "messages"),
-            orderBy("createdAt")
+            orderBy("createdAt", "asc")
           );
           const unsubForum = await onSnapshot(projectForumRef, (msg) => {
             setProject((data) => ({ ...data, messages: msg.docs }));
@@ -229,7 +229,6 @@ const Project = ({ user }) => {
       scrlBottomRef.current.scrollTop = scrlBottomRef.current.scrollHeight;
     }
   };
-  console.log(project);
   if (project) {
     return (
       <div className={styles.container}>
@@ -534,12 +533,20 @@ const Project = ({ user }) => {
               {project.messages &&
                 project.messages.map((message, index) => {
                   const data = message.data();
+
                   const msgUser = findMember(data.user, project.team);
                   const prevMsg = project.messages[index - 1]?.data();
                   const prevDate = moment(prevMsg?.createdAt).format("l");
                   const todayDate = moment(data.createdAt).format("l");
+
                   return (
-                    <>
+                    <div
+                      key={message.id}
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                      }}
+                    >
                       {prevDate !== todayDate && (
                         <h5 style={{ alignSelf: "center" }}>
                           {moment(data.createdAt).format("l")}
@@ -552,10 +559,7 @@ const Project = ({ user }) => {
                             data.user === user?.id ? "flex-start" : "flex-end",
                         }}
                       >
-                        <div
-                          className={styles.forum__message__card}
-                          key={message.id}
-                        >
+                        <div className={styles.forum__message__card}>
                           <div className={styles.forum__member__img__container}>
                             <img
                               className={styles.member__img}
@@ -572,17 +576,30 @@ const Project = ({ user }) => {
                                 />
                               </a>
                             )}
+                            {data.message.includes("http") ? (
+                              <a
+                                className={styles.forum__card__text}
+                                href={data.message}
+                                style={{
+                                  color: "blue",
+                                  textDecoration: "underline",
+                                }}
+                              >
+                                {data.message}
+                              </a>
+                            ) : (
+                              <p className={styles.forum__card__text}>
+                                {data.message}
+                              </p>
+                            )}
 
-                            <p className={styles.forum__card__text}>
-                              {data.message}
-                            </p>
                             <p className={styles.forum__card__time}>
                               {moment(data.createdAt).format("LT")}
                             </p>
                           </div>
                         </div>
                       </div>
-                    </>
+                    </div>
                   );
                 })}
             </div>

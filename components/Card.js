@@ -60,13 +60,7 @@ const ProjectCard = ({ project, users, user, detail, key }) => {
           }}
         >
           <h3 className={styles.team__lead}>{data.teamLead}</h3>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "5px",
-            }}
-          >
+          <div className={styles.members__container}>
             {users &&
               users.map((user) => {
                 const data = user.data();

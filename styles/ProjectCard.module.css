@@ -1,6 +1,6 @@
 .card {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background-color: rgba(0,0,0,0.5);
     padding:20px;
     border-radius: 10px;
@@ -14,12 +14,11 @@
   .card:hover {
     transform: scale(1.1);
     z-index: 5;
-   
+    margin: 50px 0px 60px 0px;
   }
   .card:hover:before {
         transform: translate3d(0px, 0px, 0px) scale(1.1);
         opacity: 1.6;
-       
   }
   
   .card:hover .team__lead {
@@ -109,6 +108,11 @@
     font-size: 1rem;
     text-transform: uppercase;
   }
+  .members__container {
+    display: flex;
+              flex: row;
+              gap: 5px
+  }
   
   .member__container {
     display: flex;
@@ -190,6 +194,9 @@
       flex-direction: column;
       justify-content: flex-start;
     } */
+}
+.members__container  {
+  flex-wrap: wrap;
 }
   .card:hover .title__row{
       margin:0 0 100px 0;

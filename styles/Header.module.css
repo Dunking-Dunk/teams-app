@@ -1,8 +1,10 @@
 .container {
-    padding: 1rem 20%;
+    padding: 1rem ;
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+    position: relative;
+
 }
 .right {
     display: flex;
@@ -37,8 +39,8 @@
     gap: 0.5rem;
     position: relative;
     border-radius: 50px;
-    z-index: 0;
-    
+    z-index: 0; 
+        cursor: pointer;
 }
 
 .user__container::before {
@@ -75,6 +77,8 @@ z-index: -1;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.35s ease;
+    min-height: 40px;
+
 }
 
 .signout__button:hover {
@@ -82,12 +86,89 @@ z-index: -1;
     color: black;
 }
 
+.link {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+    min-height: 20px;
+}
+
+.link__active {
+    color: #333399;
+}
+
+.link::before {
+    background: white;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    transition: transform 0.7s ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left center;
+}
+
+
+
+.link:hover::before {
+    transform: scaleX(1);
+    transform-origin: right center;
+}
+
 @media screen and (max-width: 700px) {
     .container {
         margin: 0;
         padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0,0,0,1);
     }
     .title {
         font-size: 1.5rem;
+    }
+
+    .right {
+        width: 100%;
+        height: 250px;
+      position:absolute;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        top: -500%;
+        transition: 0.35s ease-in-out;
+    }
+
+    .right__active {
+        top: 100%;
+    }
+
+    .mobile__menu {
+        width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transform:  rotate(90deg);
+    }
+
+    .mobile__menu span {
+        margin: 3px;
+        display: block;
+        width: 2px;
+        height: 25px;
+        background-color: white;
+        transition: 0.35s ease;
+  
     }
 }

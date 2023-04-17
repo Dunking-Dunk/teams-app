@@ -41,6 +41,7 @@ html::-webkit-scrollbar-thumb {
   }
 }
 
+.root__container {    padding: 0 18%;}
 
 circle {
   fill: none;
@@ -51,3 +52,10 @@ circle {
      transition: 2s linear;
 }
 
+
+@media  (max-width: 768px) {
+  .root__container {
+    padding: 30px 5%;
+  }
+  
+}
