@@ -11,7 +11,6 @@ const Header = ({ user, signOutHandler }) => {
   useEffect(() => {
     const links = document.querySelectorAll("#link");
     let prevLink = links[0];
-    prevLink.classList.add(styles.link__active);
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.target.classList.add(styles.link__active);
