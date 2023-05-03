@@ -7,18 +7,17 @@ const Header = ({ user, signOutHandler }) => {
   const span2 = useRef();
   const span3 = useRef();
   const navigationRef = useRef();
-  const [prevLink, setPrevLink] = useState();
 
   useEffect(() => {
     const links = document.querySelectorAll("#link");
-    setPrevLink(links[0]);
+    let prevLink = links[0];
     prevLink.classList.add(styles.link__active);
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.target.classList.add(styles.link__active);
 
         prevLink.classList.remove(styles.link__active);
-        setPrevLink(e.target);
+        prevLink = e.target;
       });
     });
   }, []);
@@ -47,7 +46,9 @@ const Header = ({ user, signOutHandler }) => {
         <Link href="/members" className={styles.link} id="link">
           Members
         </Link>
-
+        {/* <Link href="/resources" className={styles.link} id="link">
+          Resources
+        </Link> */}
         {user && (
           <>
             <div className={styles.user__container}>
