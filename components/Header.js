@@ -7,17 +7,18 @@ const Header = ({ user, signOutHandler }) => {
   const span2 = useRef();
   const span3 = useRef();
   const navigationRef = useRef();
+  const [prevLink, setPrevLink] = useState();
 
   useEffect(() => {
     const links = document.querySelectorAll("#link");
-    let prevLink = links[0];
+    setPrevLink(links[0]);
     prevLink.classList.add(styles.link__active);
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.target.classList.add(styles.link__active);
 
         prevLink.classList.remove(styles.link__active);
-        prevLink = e.target;
+        setPrevLink(e.target);
       });
     });
   }, []);
