@@ -40,14 +40,17 @@ const Header = ({ user, signOutHandler }) => {
         <span ref={span3}></span>
       </div>
       <div className={styles.right} ref={navigationRef}>
+        <Link href="/" className={styles.link} id="link">
+          Projects
+        </Link>
+        <Link href="/members" className={styles.link} id="link">
+          Members
+        </Link>
+        {/* <Link href="/resources" className={styles.link} id="link">
+          Resources
+        </Link> */}
         {user && (
           <>
-            <Link href="/" className={styles.link} id="link">
-              Projects
-            </Link>
-            <Link href="/members" className={styles.link} id="link">
-              Members
-            </Link>
             <div className={styles.user__container}>
               {user?.photoURL && (
                 <div className={styles.img__container}>
