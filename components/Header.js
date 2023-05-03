@@ -40,9 +40,6 @@ const Header = ({ user, signOutHandler }) => {
         <span ref={span3}></span>
       </div>
       <div className={styles.right} ref={navigationRef}>
-        {/* <Link href="/resources" className={styles.link} id="link">
-          Resources
-        </Link> */}
         {user && (
           <>
             <Link href="/" className={styles.link} id="link">
