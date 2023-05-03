@@ -56,10 +56,8 @@ export default function Home({ user }) {
       <div className={styles.projects__container}>
         {projects.map((project) => {
           const users = teams[project.id];
-          if (
-            moment(Date()).format("MMMM Do") <
-            moment(project.data().endDate).format("MMMM Do")
-          ) {
+
+          if (moment() < moment(project.data().endDate)) {
             return (
               <Card
                 project={project}

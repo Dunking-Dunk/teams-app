@@ -46,7 +46,9 @@ const Header = ({ user, signOutHandler }) => {
         <Link href="/members" className={styles.link} id="link">
           Members
         </Link>
-
+        {/* <Link href="/resources" className={styles.link} id="link">
+          Resources
+        </Link> */}
         {user && (
           <>
             <div className={styles.user__container}>

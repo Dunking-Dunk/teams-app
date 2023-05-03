@@ -412,9 +412,7 @@ const Project = ({ user }) => {
                     data.createdBy,
                     project.team
                   );
-                  const expired =
-                    moment(Date()).format("MMMM Do") >
-                    moment(data.endDate).format("MMMM Do");
+                  const expired = moment() > moment(data.endDate);
 
                   return (
                     <>
@@ -467,7 +465,7 @@ const Project = ({ user }) => {
                         </div>
                         <div className={styles.goal__card__right}>
                           <h5 className={styles.goal__right__time}>
-                            {moment(data.endDate).fromNow()} expires
+                            expires {moment(data.endDate).fromNow()}
                           </h5>
                           <div className={styles.goal__card__completedUser}>
                             {data.completedUser &&
